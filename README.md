@@ -1,3 +1,3 @@
-To run tests and generate report run command
+To run tests and generate report use command
 
 mvn clean install
