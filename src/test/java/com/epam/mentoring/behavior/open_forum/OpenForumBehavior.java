@@ -11,7 +11,7 @@ public class OpenForumBehavior extends BaseBehavior {
   private OpenForumAssert openForumAssert = new OpenForumAssert();
 
   @Given("^User on the page - http://software-testing.ru/$")
-  public void User_on_the_page_(String arg1) throws Throwable {
+  public void User_on_the_page_() throws Throwable {
 	  user.atHomePage().open();
   }
 
