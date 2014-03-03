@@ -14,7 +14,7 @@ Feature: Create new topic functionality
     Then user should see error message
     
  Scenario: As User I want to preview text entered as topic body
-    Given user is in the topic editor
+    Given user is in the editor of topic
     When user enters topic body
-    When user selects preview
+    When user opens preview
     Then user should see entered text in topic body
