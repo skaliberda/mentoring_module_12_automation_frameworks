@@ -26,7 +26,7 @@ public class CreateTopicBehavior extends BaseBehavior {
         user.atSubForumPage().createsNewTopic();
     }
     
-    @Then("^user should see new topic editor$")
+     @Then("^user should see new topic editor$")
     public void user_should_see_new_topic_editor() throws Throwable {
     	createTopicAssert.checkThatNewTopicEditorIsDisplayed();
     }

@@ -29,8 +29,8 @@ public class CreateNewTopicWithShortSubjectBehavior extends BaseBehavior {
 		user.atTopicEditorPage().userPreviewsTopic();
 	}
 
-    @Then("^user should see error message$")
-    public void user_should_see_error_message() throws Throwable {
-    	createTopicAssert.checkThatErrorMessageIsDisplayed();
-    }
+        @Then("^user should see error message$")
+        public void user_should_see_error_message() throws Throwable {
+            createTopicAssert.checkThatErrorMessageIsDisplayed();
+        }
 }
