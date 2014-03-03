@@ -1,5 +1,6 @@
 package com.epam.mentoring.pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,10 +22,15 @@ public class ForumPage extends BasePage {
     private WebElement subforumLink;
     
     public void userSignsIn() {
-        signInButton.click();
-        usernameField.sendKeys("Training");
-        passwordField.sendKeys("Qweasdzxc123");
-        submitButton.click();
+    	try { 
+    			if (signInButton.isDisplayed()) {
+    				signInButton.click();
+    				usernameField.sendKeys("Training");
+    				passwordField.sendKeys("Qweasdzxc123");
+    				submitButton.click();
+    			} 
+    		} catch(NoSuchElementException e) { System.out.println("User is already signed in"); }
+
     }
     
     public void openSubForum() {

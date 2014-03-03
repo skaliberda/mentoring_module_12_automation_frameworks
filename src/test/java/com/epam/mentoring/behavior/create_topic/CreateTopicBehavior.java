@@ -1,17 +1,11 @@
 package com.epam.mentoring.behavior.create_topic;
 
 import com.epam.mentoring.behavior.BaseBehavior;
-import com.epam.mentoring.behavior.open_forum.OpenForumAssert;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CreateTopicBehavior extends BaseBehavior {
-    
-//    Given User is logged into forum
-//    When user is on the subforum Selenium - Functional Testing  
-//    When user creates new topic
-//    Then User should see new topic editor
 
     private CreateTopicAssert createTopicAssert = new CreateTopicAssert();
     
@@ -34,7 +28,7 @@ public class CreateTopicBehavior extends BaseBehavior {
     
     @Then("^user should see new topic editor$")
     public void user_should_see_new_topic_editor() throws Throwable {
-        
+    	createTopicAssert.checkThatNewTopicEditorIsDisplayed();
     }
             
 }
