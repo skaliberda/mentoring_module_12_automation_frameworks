@@ -15,22 +15,22 @@ public class PreviewTopicBehavior extends BaseBehavior {
 		user.atHomePage().open();
 		user.atHomePage().openForum();
 		user.atForumPage().userSignsIn();
-		user.atForumPage().openSubForum();
+		user.atForumPage().openSubForum("Selenium - Functional Testing");
 		user.atSubForumPage().createsNewTopic();
 	}
 	
 	@When("^user enters topic body$")
-        public void user_enters_topic_body() throws Throwable {
-            user.atTopicEditorPage().entersTopicOfBody("This is a body of topic");
+    public void user_enters_topic_body() throws Throwable {
+		user.atTopicEditorPage().entersTopicOfBody("This is a body of topic");
         }
 	
 	@When("^user opens preview$")
 	public void user_selects_preview() throws Throwable {
-            user.atTopicEditorPage().userPreviewsTopic();
+        user.atTopicEditorPage().userPreviewsTopic();
 	}
 	
-       @Then("^user should see entered text in topic body$")
-        public void user_should_see_entered_text_in_topic_body() throws Throwable {
-            createTopicAssert.checkThatTopicBodyIsFilledWithText("This is a body of topic");
+    @Then("^user should see entered text in topic body$")
+    public void user_should_see_entered_text_in_topic_body() throws Throwable {
+        createTopicAssert.checkThatTopicBodyIsFilledWithText("This is a body of topic");
     }
 }

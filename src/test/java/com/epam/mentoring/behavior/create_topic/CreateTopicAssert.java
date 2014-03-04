@@ -9,8 +9,8 @@ import org.openqa.selenium.WebElement;
 
 public class CreateTopicAssert extends BaseBehavior {
     
-    public void checkThatNewTopicEditorIsDisplayed() {
-        Assert.assertTrue(Driver.getInstance().findElement(By.xpath("//h1[text()='Создание новой темы в Selenium - Functional Testing']")).isDisplayed());
+    public void checkThatNewTopicEditorIsDisplayed(String subForumName) {
+        Assert.assertTrue(Driver.getInstance().findElement(By.xpath("//h1[text()='Создание новой темы в "+ subForumName +"']")).isDisplayed());
     }
 
     public void checkThatErrorMessageIsDisplayed() {

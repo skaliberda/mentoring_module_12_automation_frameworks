@@ -1,8 +1,12 @@
 package com.epam.mentoring.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import com.epam.mentoring.core.Driver;
 
 public class ForumPage extends BasePage {
 
@@ -17,9 +21,6 @@ public class ForumPage extends BasePage {
     
     @FindBy(xpath = "//input[@class='ipsButton']")
     private WebElement submitButton;
-
-    @FindBy(xpath = "//a[@title='Selenium - Functional Testing']")
-    private WebElement subforumLink;
     
     public void userSignsIn() {
     	try { 
@@ -30,10 +31,11 @@ public class ForumPage extends BasePage {
     				submitButton.click();
     			} 
     		} catch(NoSuchElementException e) { System.out.println("User is already signed in"); }
-
     }
     
-    public void openSubForum() {
-        subforumLink.click();
+    public void openSubForum(String subForumName) {
+    	WebDriver driver = Driver.getInstance();
+        WebElement subforumTitle = driver.findElement(By.xpath("//a[@title='"+ subForumName +"']"));
+        subforumTitle.click();
     }
 }

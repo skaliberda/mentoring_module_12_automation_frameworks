@@ -16,9 +16,9 @@ public class CreateTopicBehavior extends BaseBehavior {
         user.atForumPage().userSignsIn();
     }
 
-    @When("^user is on the subforum Selenium - Functional Testing$")
-    public void user_is_on_the_subforum_Selenium_Functional_Testing() throws Throwable {
-        user.atForumPage().openSubForum();
+    @When("user is on the subforum \"([^\"]*)\"")
+    public void user_is_on_the_subforum_Selenium_Functional_Testing(String subForumName) throws Throwable {
+        user.atForumPage().openSubForum(subForumName);
     }
     
     @When("^user creates new topic$")
@@ -26,9 +26,9 @@ public class CreateTopicBehavior extends BaseBehavior {
         user.atSubForumPage().createsNewTopic();
     }
     
-     @Then("^user should see new topic editor$")
-    public void user_should_see_new_topic_editor() throws Throwable {
-    	createTopicAssert.checkThatNewTopicEditorIsDisplayed();
+    @Then("user should see new topic editor in \"([^\"]*)\"")
+    public void user_should_see_new_topic_editor(String subForumName) throws Throwable {
+    	createTopicAssert.checkThatNewTopicEditorIsDisplayed(subForumName);
     }
             
 }

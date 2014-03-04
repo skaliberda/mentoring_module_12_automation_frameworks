@@ -3,13 +3,13 @@ Feature: Create new topic functionality
 
   Scenario: As User I want to be able to create new topic
     Given user is logged into forum
-    When user is on the subforum Selenium - Functional Testing  
+    When user is on the subforum "Selenium - Functional Testing"  
     When user creates new topic
-    Then user should see new topic editor
+    Then user should see new topic editor in "Selenium - Functional Testing"
     
   Scenario: As User I want to avoid creating topic with subject less then 2 symbols
     Given user is in the topic editor
-    When user enters single symbol as subject name
+    When user enters single symbol "A" as subject name
     When user selects preview
     Then user should see error message
     

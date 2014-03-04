@@ -15,13 +15,13 @@ public class CreateNewTopicWithShortSubjectBehavior extends BaseBehavior {
 		user.atHomePage().open();
 		user.atHomePage().openForum();
 		user.atForumPage().userSignsIn();
-		user.atForumPage().openSubForum();
+		user.atForumPage().openSubForum("Selenium - Functional Testing");
 		user.atSubForumPage().createsNewTopic();
 	}
 
-	@When("^user enters single symbol as subject name$")
-	public void user_enters_single_symbol_as_subject_name() throws Throwable {
-		user.atTopicEditorPage().userEntersSubject("1");
+	@When("user enters single symbol \"([^\"]*)\" as subject name")
+	public void user_enters_single_symbol_as_subject_name(String singleSymbol) throws Throwable {
+		user.atTopicEditorPage().userEntersSubject(singleSymbol);
 	}
 
 	@When("^user selects preview$")
@@ -29,8 +29,8 @@ public class CreateNewTopicWithShortSubjectBehavior extends BaseBehavior {
 		user.atTopicEditorPage().userPreviewsTopic();
 	}
 
-        @Then("^user should see error message$")
-        public void user_should_see_error_message() throws Throwable {
-            createTopicAssert.checkThatErrorMessageIsDisplayed();
-        }
+    @Then("^user should see error message$")
+    public void user_should_see_error_message() throws Throwable {
+        createTopicAssert.checkThatErrorMessageIsDisplayed();
+    }
 }
