@@ -18,6 +18,6 @@ Feature: Search Test
   Scenario: Search without results
     Given User on the page - http://software-testing.ru/
     When User opens forum
-    And I type "11"
+    And I type "12"
     And I click "Search Button"
     Then I see no result message contains next text "Поиск не дал результатов по"
