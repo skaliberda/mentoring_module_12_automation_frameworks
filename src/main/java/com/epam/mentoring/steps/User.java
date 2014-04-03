@@ -1,12 +1,9 @@
 package com.epam.mentoring.steps;
 
+import com.epam.mentoring.pages.*;
 import org.openqa.selenium.support.PageFactory;
 
 import com.epam.mentoring.core.Driver;
-import com.epam.mentoring.pages.HomePage;
-import com.epam.mentoring.pages.ForumPage;
-import com.epam.mentoring.pages.SubForumPage;
-import com.epam.mentoring.pages.TopicEditorPage;
 
 public class User {
 
@@ -14,6 +11,7 @@ public class User {
   private ForumPage forumPage; 
   private SubForumPage subForumPage; 
   private TopicEditorPage topicEditorPage;
+  private SearchResultPage searchResultPage;
   
   public HomePage atHomePage() {
     if (homePage == null) {
@@ -43,4 +41,11 @@ public class User {
 	  return topicEditorPage;
 	
   }
+
+    public SearchResultPage atSearchResultPage() {
+        if (searchResultPage == null) {
+            searchResultPage = PageFactory.initElements(Driver.getInstance(), SearchResultPage.class);
+        }
+        return searchResultPage;
+    }
 }

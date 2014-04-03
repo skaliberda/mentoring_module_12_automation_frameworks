@@ -21,6 +21,12 @@ public class ForumPage extends BasePage {
     
     @FindBy(xpath = "//input[@class='ipsButton']")
     private WebElement submitButton;
+
+    @FindBy(id = "main_search")
+    private WebElement searchField;
+
+    @FindBy(xpath = "//input[@class = 'submit_input clickable']")
+    private WebElement searchButton;
     
     public void userSignsIn() {
     	try { 
@@ -37,5 +43,14 @@ public class ForumPage extends BasePage {
     	WebDriver driver = Driver.getInstance();
         WebElement subforumTitle = driver.findElement(By.xpath("//a[@title='"+ subForumName +"']"));
         subforumTitle.click();
+    }
+
+    public void fillSearchField(String query) {
+        waitForPageReady();
+        searchField.sendKeys(query);
+    }
+
+    public void clickSearchButton() {
+        searchButton.click();
     }
 }

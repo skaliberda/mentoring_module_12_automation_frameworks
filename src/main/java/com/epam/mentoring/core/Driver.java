@@ -15,6 +15,5 @@ public class Driver {
       driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
     return driver;
-
   }
 }
